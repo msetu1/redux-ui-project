@@ -1,8 +1,9 @@
+import Task from "@/components/Task/Task";
 
 const Home = () => {
     return (
         <div>
-          home secccccccc  
+         <Task></Task>  
         </div>
     );
 };
