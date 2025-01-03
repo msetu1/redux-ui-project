@@ -18,6 +18,15 @@ const initialState: IInitialState = {
       isCompleted: false,
       priority: "High",
     },
+    {
+      id: "02",
+      title: "Back Frontend",
+      description:
+        "Seamlessly promote efficient collaboration and idea-sharing through client-centric collaboration and idea-sharing.",
+      dueDate: "2025-11",
+      isCompleted: false,
+      priority: "Low",
+    },
   ],
   filter:'all',
 };
