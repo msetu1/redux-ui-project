@@ -1,7 +1,7 @@
 import { Checkbox } from "@/components/ui/checkbox";
 
 import { cn } from "@/lib/utils";
-import { toggleComplete } from "@/redux/features/task/taskSlice";
+import { deleteTask, toggleComplete } from "@/redux/features/task/taskSlice";
 import { useAppDispatch } from "@/redux/hook";
 import { ITask } from "@/types";
 import { MdDeleteForever } from "react-icons/md";
@@ -23,11 +23,19 @@ const TaskCard = ({ task }: IProps) => {
             })}
           ></div>
 
-          <h2>{task.title}</h2>
+          <h2 className={cn({ "line-through": task.isCompleted })}>
+            {task.title}
+          </h2>
         </div>
         <div className="flex gap-3 items-center text-2xl">
-          <MdDeleteForever className="font-bold " />
-          <Checkbox onClick={() => dispatch(toggleComplete(task.id))} />
+          <MdDeleteForever
+            onClick={() => dispatch(deleteTask(task.id))}
+            className="font-bold "
+          />
+          <Checkbox
+            checked={task.isCompleted}
+            onClick={() => dispatch(toggleComplete(task.id))}
+          />
         </div>
       </div>
       <p className="mt-5">{task.description}</p>
