@@ -1,6 +1,6 @@
 import { RootState } from "@/redux/store";
 import { ITask } from "@/types";
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface IInitialState {
   tasks: ITask[];
@@ -35,7 +35,7 @@ const taskSlice = createSlice({
   name: "task",
   initialState,
   reducers: {
-    addTask: (state, action) => {
+    addTask: (state, action: PayloadAction<ITask>) => {
       state.tasks.push(action.payload);
     },
   },
